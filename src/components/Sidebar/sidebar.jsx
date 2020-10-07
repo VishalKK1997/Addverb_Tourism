@@ -8,6 +8,7 @@ import Link from "@material-ui/core/Link";
 
 const useStyles = makeStyles((theme) => ({
   sidebarAboutBox: {
+    marginTop: "25px",
     padding: theme.spacing(2),
     backgroundColor: theme.palette.grey[200],
   },
@@ -18,15 +19,32 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Sidebar(props) {
   const classes = useStyles();
-  const { archives, description, social, title } = props;
+  const {
+    archives,
+    description,
+    social,
+    title,
+    place_detail,
+    violation,
+  } = props;
 
   return (
     <Grid item xs={12} md={4}>
       <Paper elevation={0} className={classes.sidebarAboutBox}>
         <Typography variant="h6" gutterBottom>
-          {title}
+          About
         </Typography>
-        <Typography>{description}</Typography>
+        <Typography>{place_detail}</Typography>
+      </Paper>
+      <Paper
+        style={{ border: "5px solid #d30c34" }}
+        elevation={0}
+        className={classes.sidebarAboutBox}
+      >
+        <Typography variant="h6" gutterBottom>
+          Violation Found
+        </Typography>
+        <Typography>{violation}</Typography>
       </Paper>
       <Typography variant="h6" gutterBottom className={classes.sidebarSection}>
         Archives

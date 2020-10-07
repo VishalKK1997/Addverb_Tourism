@@ -118,14 +118,16 @@ export default function Blog({ data }) {
         <main>
           <MainFeaturedPost post={data} />
           <Grid container spacing={4}>
-            {featuredPosts.map((post) => (
-              <FeaturedPost key={post.title} post={post} />
-            ))}
+            <FeaturedPost key={data.place_id} param={"Global"} post={data} />
+            <FeaturedPost key={data.place_id} param={"Today"} post={data} />
+            <FeaturedPost key={data.place_id} param={"Deaths"} post={data} />
+            <FeaturedPost key={data.place_id} param={"Recover"} post={data} />
           </Grid>
           <Grid container spacing={5} className={classes.mainGrid}>
             <Main title="From the firehose" />
             <Sidebar
-              title={sidebar.title}
+              place_detail={data.place_detail}
+              violation={data.violation_found}
               description={sidebar.description}
               archives={sidebar.archives}
               social={sidebar.social}

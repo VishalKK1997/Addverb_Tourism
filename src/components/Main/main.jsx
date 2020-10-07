@@ -5,6 +5,8 @@ import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
 import Markdown from "../Markdown/markdown";
+import Checkbox from "@material-ui/core/Checkbox";
+import Button from "@material-ui/core/Button";
 
 const useStyles = makeStyles((theme) => ({
   markdown: {
@@ -15,6 +17,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Main() {
   const classes = useStyles();
+  const [checked, setChecked] = React.useState(true);
 
   return (
     <Grid item xs={12} md={8}>
@@ -27,6 +30,25 @@ export default function Main() {
           {post}
         </Markdown>
       ))*/}
+      <div style={{ marginTop: "50px" }}>
+        <Typography variant="h6" gutterBottom>
+          Please check mark if you have done a covid test
+        </Typography>
+        <Checkbox
+          checked={checked}
+          onChange={(e) => setChecked(e.target.checked)}
+          color="primary"
+          inputProps={{ "aria-label": "secondary checkbox" }}
+        />
+        <Button
+          disabled={checked ? false : true}
+          onClick={handleClick}
+          size="medium"
+          color="primary"
+        >
+          Book
+        </Button>
+      </div>
     </Grid>
   );
 }
