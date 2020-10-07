@@ -1,5 +1,5 @@
 export const ALL_TOURIST_PLACES =
-  "http://safetourism.herokuapp.com/api/tourist/all_tourist_places/";
+  "https://safetourism.herokuapp.com/api/tourist/all_tourist_places/";
 export const REGISTER_ENDPOINT =
   "https://safetourism.herokuapp.com/api/account/register/";
 export const LOGIN_ENDPOINT =
