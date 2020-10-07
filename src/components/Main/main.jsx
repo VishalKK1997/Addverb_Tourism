@@ -42,7 +42,7 @@ export default function Main() {
         />
         <Button
           disabled={checked ? false : true}
-          onClick={handleClick}
+          onClick={() => {}}
           size="medium"
           color="primary"
         >

@@ -118,10 +118,10 @@ export default function Blog({ data }) {
         <main>
           <MainFeaturedPost post={data} />
           <Grid container spacing={4}>
-            <FeaturedPost key={data.place_id} param={"Global"} post={data} />
-            <FeaturedPost key={data.place_id} param={"Today"} post={data} />
-            <FeaturedPost key={data.place_id} param={"Deaths"} post={data} />
-            <FeaturedPost key={data.place_id} param={"Recover"} post={data} />
+            <FeaturedPost key={data.id} param={"Global"} post={data} />
+            <FeaturedPost key={data.id} param={"Today"} post={data} />
+            <FeaturedPost key={data.id} param={"Deaths"} post={data} />
+            <FeaturedPost key={data.id} param={"Recover"} post={data} />
           </Grid>
           <Grid container spacing={5} className={classes.mainGrid}>
             <Main title="From the firehose" />
@@ -156,9 +156,9 @@ export const getStaticProps = async ({ params }) => {
 export const getStaticPaths = async () => {
   const places = await getAllPlaces();
   return {
-    paths: places.map(({ place_id }) => ({
-      params: { id: place_id.toString() },
+    paths: places.map(({ id }) => ({
+      params: { id: id.toString() },
     })),
-    fallback: true,
+    fallback: false,
   };
 };
